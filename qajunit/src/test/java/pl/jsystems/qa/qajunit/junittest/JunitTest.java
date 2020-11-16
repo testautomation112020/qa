@@ -23,8 +23,8 @@ public class JunitTest extends ConfigJunit {
     @Disabled("Jire issue 1526")
     @Test
     public void firstJunitTest() {
-        assertTrue(5 == 2 + 3);
-        assertFalse(5 == 2 + 2);
+        assertEquals(2 + 3, 5);
+        assertNotEquals(2 + 2, 5);
         assertTrue(STRING_TESTOWY.contains("st"));
         assertTrue(STRING_TESTOWY.endsWith("wy"));
         assertEquals(STRING_TESTOWY, "stringTestowy");
@@ -35,8 +35,8 @@ public class JunitTest extends ConfigJunit {
     public void secondJunitTest() {
         System.out.println(0.2 * 0.2);
         double result = new BigDecimal("0.2").multiply(new BigDecimal("0.2")).doubleValue();
-        assertTrue(result == 0.04);
-        assertFalse(0.2 * 0.2 == 0.4);
+        assertEquals(result, 0.04);
+        assertNotEquals(0.2 * 0.2, 0.4, 0.0);
     }
 
     @DisplayName("String tests")
@@ -48,14 +48,14 @@ public class JunitTest extends ConfigJunit {
         String simpleString_2 = new String("simpleString");
         String simpleString_3 = new String("simpleString");
 
-        assertTrue(simpleString == "simpleString");
-        assertTrue(simpleString == simple);
-        assertFalse(simpleString == simpleString_2);
-        assertFalse(simpleString_2 == simpleString_3);
+        assertSame("simpleString", simpleString);
+        assertSame(simpleString, simple);
+        assertNotSame(simpleString, simpleString_2);
+        assertNotSame(simpleString_2, simpleString_3);
 
-        assertTrue(simpleString.equals(simpleString_2));
-        assertTrue(simpleString.equals("simpleString"));
-        assertTrue(simpleString.equals(simple));
+        assertEquals(simpleString_2, simpleString);
+        assertEquals(simpleString, "simpleString");
+        assertEquals(simple, simpleString);
 
     }
 
