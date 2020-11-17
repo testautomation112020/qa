@@ -27,7 +27,8 @@ public class UntitledTestCase {
 
         System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
         System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
-//        driver = new ChromeDriver();
+
+        //        driver = new ChromeDriver();
 //        baseUrl = "https://www.katalon.com/";
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
