@@ -1,6 +1,7 @@
 package pl.jsystems.qa.qajunit.junittest;
 
 import org.junit.jupiter.api.*;
+import pl.jsystems.qa.junit.GamePlay;
 import pl.jsystems.qa.qajunit.ConfigJunit;
 
 import java.math.BigDecimal;
@@ -96,6 +97,17 @@ public class JunitTest extends ConfigJunit {
             assertThat(result).hasSize(5);
             assertThat(result).containsAnyOf(1, 2, 3);
 
+        }
+
+        @DisplayName("Exception test")
+        @Test
+        public void exceptionTest() {
+            GamePlay gamePlay = new GamePlay();
+            Assertions.assertThrows(IllegalArgumentException.class,
+                    () -> {
+                       gamePlay.play(0);
+                    }
+                    );
         }
 
     }
