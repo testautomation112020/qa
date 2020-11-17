@@ -11,12 +11,11 @@ import java.util.List;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tags({@Tag("junit"), @Tag("sanity"), @Tag("noparamTest")})
 @DisplayName("Junit tests")
 public class JunitTest extends ConfigJunit {
 
     private static final String STRING_TESTOWY = "stringTestowy";
-
-
 
     @DisplayName("First junit test")
     @RepeatedTest(5)
@@ -30,6 +29,7 @@ public class JunitTest extends ConfigJunit {
         assertEquals(STRING_TESTOWY, "stringTestowy");
     }
 
+    @Tag("second")
     @DisplayName("Second junit test")
     @Test
     public void secondJunitTest() {
@@ -39,6 +39,7 @@ public class JunitTest extends ConfigJunit {
         assertNotEquals(0.2 * 0.2, 0.4, 0.0);
     }
 
+    @Tag("string")
     @DisplayName("String tests")
     @Test
     public void stringTest() {
@@ -65,6 +66,7 @@ public class JunitTest extends ConfigJunit {
         assertThat(STRING_TESTOWY).contains("tring");
     }
 
+    @Tags({@Tag("wordpress"), @Tag("word")})
     @DisplayName("Zadanie 1")
     @Test
     public void zad1() {

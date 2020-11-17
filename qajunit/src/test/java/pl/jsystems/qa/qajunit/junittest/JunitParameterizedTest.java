@@ -1,6 +1,8 @@
 package pl.jsystems.qa.qajunit.junittest;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,6 +13,7 @@ import pl.jsystems.qa.qajunit.ConfigJunit;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Tags({@Tag("paramTest"), @Tag("junit")})
 @DisplayName("Parameterized test")
 public class JunitParameterizedTest extends ConfigJunit {
 
@@ -56,6 +59,7 @@ public class JunitParameterizedTest extends ConfigJunit {
     String resultString = "Wordpress powers 100% of the internet";
     String expectedString = "Wordpress powers [number]% of the internet";
 
+    @Tag("wordpress")
     @ParameterizedTest(name = "Wordpress test {0}")
     @ValueSource(strings = {"1", "1000", "10000"})
     public void worpressTest(String value) {
