@@ -8,6 +8,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pl.jsystems.qa.qagui.classic.functional.LoginFunction;
+import pl.jsystems.qa.qagui.classic.page.LoginPage;
+import pl.jsystems.qa.qagui.classic.page.MainUserPage;
+import pl.jsystems.qa.qagui.classic.page.MainWordpressPage;
+import pl.jsystems.qa.qagui.classic.page.UserProfilePage;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -35,10 +40,10 @@ public class FrontendTest {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-//        driver = new ChromeDriver();
+        driver = new ChromeDriver();
 //        driver = new FirefoxDriver();
 //        driver = new SafariDriver();
-        driver = new EdgeDriver();
+//        driver = new EdgeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
@@ -77,23 +82,17 @@ public class FrontendTest {
     @Test
     public void checkUser() {
         driver.get("https://wordpress.com/");
-        driver.findElement(By.cssSelector(".x-nav-item.x-nav-item--wide.x-nav-item--logged-in")).click();
-        driver.findElement(By.id("usernameOrEmail")).clear();
-        driver.findElement(By.id("usernameOrEmail")).click();
-        driver.findElement(By.id("usernameOrEmail")).sendKeys("testautomation112020");
-        driver.findElement(By.cssSelector(".button.form-button.is-primary")).click();
 
-        try {
-            sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        LoginFunction loginFunction = new LoginFunction(driver);
+        loginFunction.login();
 
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).sendKeys("automation112020");
-        driver.findElement(By.cssSelector(".button.form-button.is-primary")).click();
+        MainUserPage mainUserPage = new MainUserPage(driver);
+        mainUserPage.userAvatar.click();
 
+        UserProfilePage userProfilePage = new UserProfilePage(driver);
+        String userName = userProfilePage.userNamePanel.getText();
+
+        assertThat(userName).isEqualTo("testautomation112020");
 
     }
 
@@ -101,4 +100,6 @@ public class FrontendTest {
     public void tearDown() {
         driver.quit();
     }
+
+
 }
