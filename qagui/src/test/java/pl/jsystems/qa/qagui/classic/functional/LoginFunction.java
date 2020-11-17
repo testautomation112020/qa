@@ -1,8 +1,13 @@
 package pl.jsystems.qa.qagui.classic.functional;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.jsystems.qa.qagui.classic.page.LoginPage;
 import pl.jsystems.qa.qagui.classic.page.MainWordpressPage;
+import pl.jsystems.qa.qagui.config.GuiConfig;
 
 import static java.lang.Thread.sleep;
 
@@ -20,18 +25,14 @@ public class LoginFunction {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginInput.clear();
         loginPage.loginInput.click();
-        loginPage.loginInput.sendKeys("testautomation112020");
+        loginPage.loginInput.sendKeys(GuiConfig.LOGIN);
         loginPage.logginButton.click();
 
-        try {
-            sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        loginPage.waitForVisibilityOfElement(By.id(LoginPage.password), 15);
 
         loginPage.passwordInput.clear();
         loginPage.passwordInput.click();
-        loginPage.passwordInput.sendKeys("automation112020");
+        loginPage.passwordInput.sendKeys(GuiConfig.PASSWORD);
         loginPage.passwordButton.click();
 
     }

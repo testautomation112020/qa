@@ -1,5 +1,6 @@
 package pl.jsystems.qa.qagui.classic;
 
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,10 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.jsystems.qa.qagui.classic.functional.LoginFunction;
-import pl.jsystems.qa.qagui.classic.page.LoginPage;
-import pl.jsystems.qa.qagui.classic.page.MainUserPage;
-import pl.jsystems.qa.qagui.classic.page.MainWordpressPage;
-import pl.jsystems.qa.qagui.classic.page.UserProfilePage;
+import pl.jsystems.qa.qagui.classic.page.*;
+import pl.jsystems.qa.qagui.classic.page.modules.Comment;
+import pl.jsystems.qa.qagui.config.GuiConfig;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -20,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 
 import static com.google.common.truth.Truth.assertThat;
 import static java.lang.Thread.sleep;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("frontend")
 @DisplayName("Frontend test")
@@ -51,28 +53,18 @@ public class FrontendTest {
 
     }
 
+    @Tag("login")
     @DisplayName("Login test")
     @Test
     public void loginTest() {
         driver.get("https://wordpress.com/");
-        driver.findElement(By.cssSelector(".x-nav-item.x-nav-item--wide.x-nav-item--logged-in")).click();
-        driver.findElement(By.id("usernameOrEmail")).clear();
-        driver.findElement(By.id("usernameOrEmail")).click();
-        driver.findElement(By.id("usernameOrEmail")).sendKeys("testautomation112020");
-        driver.findElement(By.cssSelector(".button.form-button.is-primary")).click();
 
-        try {
-            sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        LoginFunction loginFunction = new LoginFunction(driver);
+        loginFunction.login();
 
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).sendKeys("automation112020");
-        driver.findElement(By.cssSelector(".button.form-button.is-primary")).click();
+        MainUserPage mainUserPage = new MainUserPage(driver);
 
-        String welcomeText = driver.findElement(By.className("empty-content__title")).getText();
+        String welcomeText = mainUserPage.welcomeText.getText();
 
         assertThat(welcomeText).isEqualTo("Witaj w Czytniku");
 
@@ -81,7 +73,7 @@ public class FrontendTest {
     @DisplayName("Check user")
     @Test
     public void checkUser() {
-        driver.get("https://wordpress.com/");
+        driver.get(GuiConfig.BASE_URL);
 
         LoginFunction loginFunction = new LoginFunction(driver);
         loginFunction.login();
@@ -92,7 +84,63 @@ public class FrontendTest {
         UserProfilePage userProfilePage = new UserProfilePage(driver);
         String userName = userProfilePage.userNamePanel.getText();
 
-        assertThat(userName).isEqualTo("testautomation112020");
+        assertThat(userName).isEqualTo(GuiConfig.LOGIN);
+
+    }
+
+    @DisplayName("Check save button on user profile page.")
+    @Test
+    public void saveButton() {
+        driver.get(GuiConfig.BASE_URL);
+
+        LoginFunction loginFunction = new LoginFunction(driver);
+        loginFunction.login();
+
+        MainUserPage mainUserPage = new MainUserPage(driver);
+        mainUserPage.userAvatar.click();
+
+        UserProfilePage userProfilePage = new UserProfilePage(driver);
+
+        assertTrue(userProfilePage.saveButton.isDisplayed());
+        assertFalse(userProfilePage.saveButton.isEnabled());
+
+    }
+
+    @Disabled
+    @DisplayName("Check selected element.")
+    @Test
+    public void selectedElement() {
+        driver.get(GuiConfig.BASE_URL);
+
+        LoginFunction loginFunction = new LoginFunction(driver);
+        loginFunction.login();
+
+        MainUserPage mainUserPage = new MainUserPage(driver);
+//        mainUserPage.userAvatar.click();
+
+//        UserProfilePage userProfilePage = new UserProfilePage(driver);
+
+//        try {
+//            sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+//        userProfilePage.notificationLabel.click();
+
+
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//        NotificationUserPage notificationUserPage = new NotificationUserPage(driver);
+//        notificationUserPage.commentsLabel.click();
+//
+//        Comment comment = new Comment(driver);
+//
+//        assertFalse(comment.saveSettingsButton.isEnabled());
+
 
     }
 
