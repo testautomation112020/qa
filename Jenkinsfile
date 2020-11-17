@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         choice(name: 'TAG', choices: ['junit', 'paramTest', 'noparamTest', 'sanity', 'second', 'string', 'wordpress', 'word'], description: 'Choose tag.')
-        choice(name: 'EXTAG', choices: ['junit', 'paramTest', 'noparamTest', 'sanity', 'second', 'string', 'wordpress', 'word'], description: 'Choose tag.')
+        choice(name: 'EXTAG', choices: ['','junit', 'paramTest', 'noparamTest', 'sanity', 'second', 'string', 'wordpress', 'word'], description: 'Choose tag.')
     }
 
     stages {
