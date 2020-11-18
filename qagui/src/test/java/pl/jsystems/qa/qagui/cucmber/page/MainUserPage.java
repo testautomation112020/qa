@@ -24,4 +24,7 @@ public class MainUserPage extends BasePage {
     @FindBy(css = "a[data-tip-target=\"reader\"]")
     public WebElement readerLabel;
 
+    @FindBy(css = ".empty-content__action.button.is-primary")
+    public WebElement searchButton;
+
 }
