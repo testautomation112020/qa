@@ -1,8 +1,11 @@
-package pl.jsystems.qa.qagui.classic;
+package pl.jsystems.qa.qagui.cucmber;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -17,12 +20,15 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
-public class ConfigFrontEnd {
-
+public class ConfigBaseStep {
     protected WebDriver driver;
 
-    @BeforeEach
-    public void setUpEach() {
+    @Before
+    public void setUp() {
+
+    }
+
+    public WebDriver setUpWebDriver() {
 
         if (GuiConfig.MACHINE.equals("local")) {
             try {
@@ -38,7 +44,7 @@ public class ConfigFrontEnd {
         }
 
         setUpDriver();
-
+        return driver;
     }
 
     private void setUpDriver() {
@@ -101,10 +107,22 @@ public class ConfigFrontEnd {
         return desiredCapabilities;
     }
 
-    @AfterEach
-    public void tearDown() {
+    @After
+    public void tearDown(Scenario scenario) {
+        System.out.println("=========================== @After Cucumber Test  =======================================");
+        String status;
+        if(!scenario.isFailed()) {
+            status = "( ͡° ͜ʖ ͡°)";
+//            status = "++++++++++";
+            scenario.write("Scenario passed");
+        } else {
+            status = "(✖╭╮✖)";
+//            status = "-------------";
+            scenario.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"images/png");
+            scenario.write("Scenario failed");
+        }
+        System.out.println("\n"+status+" End of: " + scenario.getName() + " scenario.");
         driver.quit();
         driver = null;
     }
-
 }

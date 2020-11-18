@@ -1,13 +1,11 @@
-package pl.jsystems.qa.qagui ;
+package pl.jsystems.qa.qagui.classic;
 
 import java.nio.file.Paths;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,6 +13,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled
+@Tag("Frontend")
 public class UntitledTestCase {
     private WebDriver driver;
     private String baseUrl;
