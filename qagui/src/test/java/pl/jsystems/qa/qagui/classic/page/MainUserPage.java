@@ -17,8 +17,11 @@ public class MainUserPage extends BasePage  {
     public WebElement welcomeText;
 //    public WebElement welcomeText = driver.findElement(By.className("empty-content__title"));
 
-    @FindBy(css = ".masterbar__item.masterbar__item-me")
+    public static final String USER_AVATAR = "a[data-tip-target=\"me\"]";
+    @FindBy(css = USER_AVATAR)
     public WebElement userAvatar;
-//    public WebElement userAvatar = driver.findElement(By.cssSelector(".masterbar__item.masterbar__item-me"));
+
+    @FindBy(css = "a[data-tip-target=\"reader\"]")
+    public WebElement readerLabel;
 
 }
