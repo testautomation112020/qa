@@ -41,7 +41,6 @@ public class ConfigFrontEnd {
 
     }
 
-
     private void setUpDriver() {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
