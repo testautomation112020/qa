@@ -35,14 +35,15 @@ public class ParamCucumberSteps {
         assertEquals(driver.getTitle(), arg0);
     }
 
-//    @Given("Name of the website is {<website>}")
-//    public void nameOfTheWebsiteIsWebsite(String arg0) {
-//        driver.get(arg0);
-//    }
-//
-//    @Then("Title of this website is {<website>}")
-//    public void titleOfThisWebsiteIsTitle(String arg0) {
-//        assertEquals(driver.getTitle(), arg0);
-//    }
+    @Given("Name of the website is {}")
+    public void nameOfTheWebsiteIsWebsite(String arg0) {
+        driver.get(arg0);
+    }
+
+    @Then("Title of this website is {}")
+    public void titleOfThisWebsiteIsTitle(String arg0) {
+        System.out.println(driver.getTitle());
+        assertEquals(driver.getTitle(), arg0);
+    }
 
 }
