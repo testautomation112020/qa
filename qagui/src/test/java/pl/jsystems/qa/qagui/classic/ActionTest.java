@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import pl.jsystems.qa.qagui.classic.page.MainWordpressPage;
 import pl.jsystems.qa.qagui.config.GuiConfig;
 
-@Tags({@Tag("Frontend"), @Tag("ActionTest")})
+@Tag("Frontend")
 public class ActionTest extends ConfigFrontEnd {
 
     @DisplayName("Simple action")
