@@ -19,35 +19,35 @@ import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("frontend")
+@Tag("Frontend")
 @DisplayName("Frontend test")
-public class FrontendTest {
+public class FrontendTest extends ConfigFrontEnd {
+//
+//    private WebDriver driver;
 
-    private WebDriver driver;
+//    @BeforeAll
+//    public static void setUpBefore() {
+//    }
 
-    @BeforeAll
-    public static void setUpBefore() {
-    }
-
-    @BeforeEach
-    public void setUpEach() {
-        try {
-            System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
-            System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
-            System.setProperty("webdriver.edge.driver", Paths.get(getClass().getClassLoader().getResource("driver/msedgedriver.exe").toURI()).toFile().getAbsolutePath());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
-//        driver = new SafariDriver();
-//        driver = new EdgeDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-
-    }
+//    @BeforeEach
+//    public void setUpEach() {
+//        try {
+//            System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
+//            System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
+//            System.setProperty("webdriver.edge.driver", Paths.get(getClass().getClassLoader().getResource("driver/msedgedriver.exe").toURI()).toFile().getAbsolutePath());
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
+//        driver = new ChromeDriver();
+////        driver = new FirefoxDriver();
+////        driver = new SafariDriver();
+////        driver = new EdgeDriver();
+//        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+//        driver.manage().deleteAllCookies();
+//        driver.manage().window().maximize();
+//
+//    }
 
     @Tag("login")
     @DisplayName("Login test")
@@ -215,10 +215,10 @@ public class FrontendTest {
 
     }
 
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterEach
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
 
 }

@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         choice(name: 'ENVIRONMENT', choices: ['dev', 'test', 'stage', 'sandbox'], description: 'Choose environment.')
-        choice(name: 'TAG', choices: ['junit', 'paramTest', 'noparamTest', 'sanity', 'second', 'string', 'wordpress', 'word', "frontend", "login"], description: 'Choose tag.')
+        choice(name: 'TAG', choices: ['junit', 'paramTest', 'noparamTest', 'sanity', 'second', 'string', 'wordpress', 'word', "Frontend", "login". "ActionTest", "Window"], description: 'Choose tag.')
         choice(name: 'EXTAG', choices: ['','junit', 'paramTest', 'noparamTest', 'sanity', 'second', 'string', 'wordpress', 'word'], description: 'Choose tag.')
     }
 

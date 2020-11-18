@@ -18,5 +18,11 @@ public class MainWordpressPage extends BasePage {
 
 //    public WebElement loginButton = driver.findElement(By.cssSelector(".x-nav-item.x-nav-item--wide.x-nav-item--logged-in"));
 
+    @FindBy(css = "#lpc-picture\\.3 > div")
+    public WebElement picture;
+
+    @FindBy(id = "lpc-button")
+    public WebElement startYourWebsite;
+
 
 }
