@@ -1,17 +1,13 @@
 package pl.jsystems.qa.qagui.classic;
 
-import org.checkerframework.checker.units.qual.A;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import pl.jsystems.qa.qagui.classic.page.MainWordpressPage;
 import pl.jsystems.qa.qagui.config.GuiConfig;
-
-import java.net.URISyntaxException;
-import java.nio.file.Paths;
-import java.util.concurrent.TimeUnit;
 
 @Tags({@Tag("Frontend"), @Tag("ActionTest")})
 public class ActionTest extends ConfigFrontEnd {
