@@ -57,13 +57,9 @@ public class FrontendTest extends ConfigFrontEnd {
 
         LoginFunction loginFunction = new LoginFunction(driver);
         loginFunction.login();
-
         MainUserPage mainUserPage = new MainUserPage(driver);
-
         String welcomeText = mainUserPage.welcomeText.getText();
-
         assertThat(welcomeText).isEqualTo("Witaj w Czytniku");
-
     }
 
     @DisplayName("Check user")
