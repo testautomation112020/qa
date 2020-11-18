@@ -111,4 +111,34 @@ public class WindowsTest extends ConfigFrontEnd {
         String title = driver.getTitle();
         assertThat(title).isEqualTo("title");
     }
+
+    @Test
+    void scrollIntoView(){
+        driver.get("http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/complete_examples.html");
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"mCSB_9_container\"]/ul/li[4]/img"));
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    @Test
+    public void frameTest(){
+        String contactUrl = "http://www.testdiary.com/training/selenium/selenium-test-page/";
+        driver.get(contactUrl);
+        new WebDriverWait(driver, 10)
+
+                .until(ExpectedConditions.visibilityOfElementLocated(By.name("testframe")));
+        WebElement testframe = driver.findElement(By.name("testframe"));
+
+        driver.switchTo().frame(testframe);
+        String expectedFrameText = driver.findElement(By.id("testpagelink")).getText();
+        String actualFrameText = "My frame text";
+        if(actualFrameText.equals(expectedFrameText)){
+            System.out.println("Found my frame text");
+        }
+        else {
+            System.out.println("Did not find my frame text");
+        }
+        driver.switchTo().parentFrame();
+    }
+
 }
