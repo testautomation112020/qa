@@ -25,20 +25,26 @@ public class ConfigFrontEnd {
     public void setUpEach() {
 
         if (GuiConfig.MACHINE.equals("local")) {
-            try {
-                System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
-                System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
-                System.setProperty("webdriver.edge.driver", Paths.get(getClass().getClassLoader().getResource("driver/msedgedriver.exe").toURI()).toFile().getAbsolutePath());
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-            driver = setWebDriver();
+            setUpLocalConfiguration();
         } else {
-            driver = setRemoteDriver();
+            setupRemoteConfiguration();
         }
-
         setUpDriver();
+    }
 
+    private void setupRemoteConfiguration() {
+        driver = setRemoteDriver();
+    }
+
+    private void setUpLocalConfiguration() {
+        try {
+            System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
+            System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
+            System.setProperty("webdriver.edge.driver", Paths.get(getClass().getClassLoader().getResource("driver/msedgedriver.exe").toURI()).toFile().getAbsolutePath());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        driver = setWebDriver();
     }
 
     private void setUpDriver() {
