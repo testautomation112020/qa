@@ -16,13 +16,13 @@ import org.junit.runner.RunWith;
 
     tags = {
 //            "@userpanel",
-//            "@wordpress",
+            "@wordpress",
 //            "@login",
 //            "@BDD"
 //            "@search"
 //            "@website"
 //            "@website_2"
-            "@website_3"
+//            "@website_3"
     }
 )
 public class RunTest {
