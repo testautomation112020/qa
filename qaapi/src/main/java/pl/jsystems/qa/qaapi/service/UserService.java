@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pl.jsystems.qa.qaapi.model.SimpleUser;
 import pl.jsystems.qa.qaapi.model.User;
+import pl.jsystems.qa.qaapi.model.error.ErrorResponse;
 import pl.jsystems.qa.qaapi.specification.Specification;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class UserService extends Service {
     private static final String USERS_PATH = "/5a6a58222e0000d0377a7789";
     private static final String USERS_POST_PATH = "/5a690a1b2e000051007a73cb";
     private static final String USER_BY_ID_PATH = "/5a6b69ec3100009d211b8aeb/{id}";
+    private static final String ERROR_BY_ID_PATH = "/5a690b452e000054007a73cd/{id}";
 
     public static Response returnUserResponse() {
         return getResponseV2(USERS_PATH);
@@ -36,6 +38,10 @@ public class UserService extends Service {
 
     public static List<SimpleUser> postUser(SimpleUser user) {
         return postV2UnPack(USERS_POST_PATH, user).getList("", SimpleUser.class);
+    }
+
+    public static ErrorResponse getErrorResponse(long id) {
+        return getV2UnPack(ERROR_BY_ID_PATH, id).getObject("", ErrorResponse.class);
     }
 
     private static JsonPath getV2UnPack(String path, Object... params) {

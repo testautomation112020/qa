@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.jsystems.qa.qaapi.model.SimpleUser;
 import pl.jsystems.qa.qaapi.model.User;
+import pl.jsystems.qa.qaapi.model.error.ErrorResponse;
 import pl.jsystems.qa.qaapi.service.UserService;
 
 import java.util.ArrayList;
@@ -149,6 +150,21 @@ public class ApiTest {
         assertThat(user.name).isEqualTo("Piotr");
         assertThat(user.surname).isEqualTo("Kowalski");
 
+    }
+
+    @DisplayName("Error response for incorrect id.")
+    @Test
+    public void errorResponse() {
+        //given
+        long id = 1;
+
+        //when
+        ErrorResponse errorResponse = UserService.getErrorResponse(id);
+
+        //then
+        assertThat(errorResponse.error.errorCode).isEqualTo(400);
+        assertThat(errorResponse.error.validationError).isEqualTo("invalid_email");
+        assertThat(errorResponse.error.message).isEqualTo("your email is invalid");
     }
 
 }
