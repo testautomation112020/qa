@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class UserProfilePage extends BasePage  {
 
 
@@ -23,5 +25,14 @@ public class UserProfilePage extends BasePage  {
 
     @FindBy(css = "a[href=\"/me/notifications\"] .sidebar__menu-link-text.menu-link-text")
     public WebElement notificationLabel;
+
+//    @FindBy(css = "#secondary > ul > li > ul:nth-child(4) li")
+    public List<WebElement> labels;
+
+    public List<WebElement> getlabels() {
+        labels = driver.findElements(By.cssSelector("css = \"#secondary > ul > li > ul:nth-child(4) li"));
+        return labels;
+    }
+
 
 }

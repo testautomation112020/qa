@@ -1,14 +1,12 @@
-package pl.jsystems.qa.qagui.cucmber.steps;
+package pl.jsystems.qa.qagui.cucumber.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
-import pl.jsystems.qa.qagui.cucmber.ConfigBaseStep;
 
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class ParamCucumberSteps {
     private WebDriver driver;

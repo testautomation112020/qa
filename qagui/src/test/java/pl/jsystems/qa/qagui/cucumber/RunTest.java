@@ -1,24 +1,27 @@
-package pl.jsystems.qa.qagui.cucmber;
+package pl.jsystems.qa.qagui.cucumber;
 
-
+import io.cucumber.java.Before;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.Tag;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources",
-    glue = "classpath:pl.jsystems.qa.qagui.cucmber",
+    glue = "classpath:pl.jsystems.qa.qagui.cucumber.steps",
     plugin = { "pretty", "summary", "html:target/cucumber/report.html", "json:target/cucumber.json",
             "junit:target/cucumber.xml",
             "rerun:target/rerun.txt"
     },
 
-    snippets = CucumberOptions.SnippetType.CAMELCASE,
+//    snippets = CucumberOptions.SnippetType.CAMELCASE,
 
     tags =
 //             "not " +
-                    "@userpane" +
+                    "@userpane"
+                            +
                     " and " +
 //            "not " +
                     "@wordpress" +
