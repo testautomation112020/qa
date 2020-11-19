@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources",
-    glue = "classpath:pl.jsystems.qa.qagui.cucumber.steps",
+    glue = "classpath:pl.jsystems.qa.qagui.cucumber",
     plugin = { "pretty", "summary", "html:target/cucumber/report.html", "json:target/cucumber.json",
             "junit:target/cucumber.xml",
             "rerun:target/rerun.txt"
@@ -33,7 +33,7 @@ import org.junit.runner.RunWith;
 //            "not " +
                     "@BDD" +
                     " and " +
-//            "not " +
+//            "not " +g
                     "@search" +
                     " and " +
 //            "not " +

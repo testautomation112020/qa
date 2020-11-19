@@ -1,4 +1,4 @@
-package pl.jsystems.qa.qagui.cucumber.steps;
+package pl.jsystems.qa.qagui.cucumber;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
