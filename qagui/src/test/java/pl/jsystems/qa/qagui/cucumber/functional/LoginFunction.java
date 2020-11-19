@@ -1,4 +1,4 @@
-package pl.jsystems.qa.qagui.cucmber.functional;
+package pl.jsystems.qa.qagui.cucumber.functional;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

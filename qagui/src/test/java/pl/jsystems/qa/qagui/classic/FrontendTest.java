@@ -100,10 +100,9 @@ public class FrontendTest extends ConfigFrontEnd {
 
     }
 
-    @RepeatedTest(10)
     @DisplayName("Check selected element.")
-    @Test
-    public void selectedElement() throws InterruptedException {
+    @RepeatedTest(10)
+    public void selectedElement()  {
         driver.get(GuiConfig.BASE_URL);
 
         LoginFunction loginFunction = new LoginFunction(driver);
@@ -151,7 +150,11 @@ public class FrontendTest extends ConfigFrontEnd {
         int counter = 0;
         boolean selected = false;
         while (!selected & counter < 20) {
-            sleep(500);
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if (commentModule.likeRingCheckbox.isSelected()) {
                 selected = true;
             } else {
@@ -174,7 +177,11 @@ public class FrontendTest extends ConfigFrontEnd {
         counter = 0;
         boolean selected2 = true;
         while (selected2 & counter < 20) {
-            sleep(500);
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if (!commentModule.likeRingCheckbox.isSelected()) {
                 selected2 = false;
             } else {
@@ -196,7 +203,11 @@ public class FrontendTest extends ConfigFrontEnd {
         counter = 0;
         boolean selected3 = false;
         while (!selected3 & counter < 20) {
-            sleep(500);
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if (commentModule.likeRingCheckbox.isSelected()) {
                 selected3 = true;
             } else {

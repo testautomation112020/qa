@@ -1,4 +1,4 @@
-package pl.jsystems.qa.qagui.cucmber.page;
+package pl.jsystems.qa.qagui.cucumber.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

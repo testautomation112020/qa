@@ -1,4 +1,4 @@
-package pl.jsystems.qa.qagui.cucmber.steps;
+package pl.jsystems.qa.qagui.cucumber.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -6,10 +6,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pl.jsystems.qa.qagui.config.GuiConfig;
-import pl.jsystems.qa.qagui.cucmber.ConfigBaseStep;
-import pl.jsystems.qa.qagui.cucmber.functional.LoginFunction;
-import pl.jsystems.qa.qagui.cucmber.page.MainUserPage;
-import pl.jsystems.qa.qagui.cucmber.page.SearchPage;
+import pl.jsystems.qa.qagui.cucumber.functional.LoginFunction;
+import pl.jsystems.qa.qagui.cucumber.page.MainUserPage;
+import pl.jsystems.qa.qagui.cucumber.page.SearchPage;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertTrue;

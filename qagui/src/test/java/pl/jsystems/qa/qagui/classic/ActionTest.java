@@ -1,9 +1,6 @@
 package pl.jsystems.qa.qagui.classic;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pl.jsystems.qa.qagui.classic.page.MainWordpressPage;

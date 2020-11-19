@@ -1,4 +1,4 @@
-package pl.jsystems.qa.qagui.cucmber;
+package pl.jsystems.qa.qagui.cucumber.steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -16,14 +16,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import pl.jsystems.qa.qagui.config.GuiConfig;
 
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class ConfigBaseStep {
     protected WebDriver driver;
-
 
     @Before
     public void setUp() {
