@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pl.jsystems.qa.qagui.config.GuiConfig;
+import pl.jsystems.qa.qagui.cucumber.ConfigBaseStep;
 import pl.jsystems.qa.qagui.cucumber.functional.LoginFunction;
 import pl.jsystems.qa.qagui.cucumber.page.MainUserPage;
 import pl.jsystems.qa.qagui.cucumber.page.SearchPage;

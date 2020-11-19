@@ -3,6 +3,7 @@ package pl.jsystems.qa.qagui.cucumber.steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
+import pl.jsystems.qa.qagui.cucumber.ConfigBaseStep;
 
 import java.util.Map;
 
