@@ -12,6 +12,7 @@
     <modules>
         <module>qajunit</module>
         <module>qagui</module>
+        <module>qaapi</module>
     </modules>
 
     <properties>
@@ -32,6 +33,7 @@
         <cucumber>6.9.0</cucumber>
         <junit>4.13</junit>
         <webdrivermanager>4.2.2</webdrivermanager>
+        <rest-assured>4.3.2</rest-assured>
     </properties>
 
     <dependencyManagement>
@@ -177,6 +179,12 @@
                 <groupId>io.github.bonigarcia</groupId>
                 <artifactId>webdrivermanager</artifactId>
                 <version>${webdrivermanager}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${rest-assured}</version>
             </dependency>
 
         </dependencies>
