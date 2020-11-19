@@ -8,7 +8,10 @@ import pl.jsystems.qa.qaapi.model.SimpleUser;
 import pl.jsystems.qa.qaapi.model.User;
 import pl.jsystems.qa.qaapi.service.UserService;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -123,6 +126,29 @@ public class ApiTest {
 
         assertThat(user.name).isEqualTo("Piotr");
         assertThat(user.surname).isEqualTo("Kowalski");
+    }
+
+    @DisplayName("Get user by queryParam and pathVariable.")
+    @Test
+    public void getUserByQueryparamAndPathVariable() {
+
+        //given
+        long id = 1;
+
+        List<String> idParams = new ArrayList<>();
+        idParams.add("Paweł");
+        idParams.add("Piotr");
+
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("name", idParams);
+
+        //when
+        SimpleUser user = UserService.getUserByParams(queryParams, id);
+
+        //then
+        assertThat(user.name).isEqualTo("Piotr");
+        assertThat(user.surname).isEqualTo("Kowalski");
+
     }
 
 }
