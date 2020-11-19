@@ -4,6 +4,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pl.jsystems.qa.qaapi.model.SimpleUser;
+import pl.jsystems.qa.qaapi.model.User;
 import pl.jsystems.qa.qaapi.service.UserService;
 
 import java.util.List;
@@ -94,6 +96,17 @@ public class ApiTest {
         assertThat(users.get(0).device.get(0).deviceModel.get(0).screenSize).isEqualTo(17);
         assertThat(users.get(0).device.size()).isEqualTo(2);
 
+    }
+
+    @DisplayName("Add user")
+    @Test
+    public void addUser() {
+        //given
+        SimpleUser user = new SimpleUser("Paweł", "Dubaj");
+
+        List<SimpleUser> users = UserService.postUser(user);
+
+        System.out.println(user.toString());
     }
 
 }
