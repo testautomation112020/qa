@@ -13,32 +13,34 @@ import org.junit.runner.RunWith;
             "junit:target/cucumber.xml",
             "rerun:target/rerun.txt"
     },
-        snippets = CucumberOptions.SnippetType.CAMELCASE,
 
-    tags =
-            "not " +
-                    "@userpane" +
-                    " and " +
-            "not " +
-                    "@wordpress" +
-                    " and " +
-            "not " +
-                    "@login" +
-                    " and " +
-            "not " +
-                    "@BDD" +
-                    " and " +
-            "not " +
-                    "@search" +
-                    " and " +
-            "not " +
-                    "@website" +
-                    " and " +
-            "not " +
-                    "@website_2" +
-                    " and " +
+    snippets = CucumberOptions.SnippetType.CAMELCASE,
+
+    tags = ""
+//             + "not " +
+//                    "@userpane" +
+//                    " and " +
 //            "not " +
-                    "@website_3"
+//                    "@wordpress" +
+//                    " and " +
+//            "not " +
+//                    "@login"
+//                            +
+//                    " and " +
+//            "not " +
+//                    "@BDD" +
+//                    " and " +
+//            "not " +
+//                    "@search" +
+//                    " and " +
+//            "not " +
+//                    "@website" +
+//                    " and " +
+//            "not " +
+//                    "@website_2" +
+//                    " and " +
+//            "not " +
+                     + "@website_3"
 
 )
 public class RunTest {

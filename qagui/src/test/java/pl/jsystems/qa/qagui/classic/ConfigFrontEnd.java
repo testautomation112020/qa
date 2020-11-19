@@ -1,6 +1,5 @@
 package pl.jsystems.qa.qagui.classic;
 
-import io.cucumber.java.BeforeStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,9 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import pl.jsystems.qa.qagui.config.GuiConfig;
 
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class ConfigFrontEnd {
