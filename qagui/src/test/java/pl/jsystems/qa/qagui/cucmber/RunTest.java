@@ -16,31 +16,31 @@ import org.junit.runner.RunWith;
 
     snippets = CucumberOptions.SnippetType.CAMELCASE,
 
-    tags = ""
-//             + "not " +
-//                    "@userpane" +
-//                    " and " +
+    tags =
+//             "not " +
+                    "@userpane" +
+                    " and " +
 //            "not " +
-//                    "@wordpress" +
-//                    " and " +
+                    "@wordpress" +
+                    " and " +
 //            "not " +
-//                    "@login"
-//                            +
-//                    " and " +
+                    "@login"
+                            +
+                    " and " +
 //            "not " +
-//                    "@BDD" +
-//                    " and " +
+                    "@BDD" +
+                    " and " +
 //            "not " +
-//                    "@search" +
-//                    " and " +
+                    "@search" +
+                    " and " +
 //            "not " +
-//                    "@website" +
-//                    " and " +
+                    "@website" +
+                    " and " +
 //            "not " +
-//                    "@website_2" +
-//                    " and " +
+                    "@website_2" +
+                    " and " +
 //            "not " +
-                     + "@website_3"
+                      "@website_3"
 
 )
 public class RunTest {
