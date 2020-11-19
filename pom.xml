@@ -29,8 +29,9 @@
         <selenium-java>3.141.59</selenium-java>
         <guava>27.1-jre</guava>
         <typesafe.config>1.4.1</typesafe.config>
-        <cucumber>4.5.2</cucumber>
+        <cucumber>6.9.0</cucumber>
         <junit>4.13</junit>
+        <webdrivermanager>4.2.2</webdrivermanager>
     </properties>
 
     <dependencyManagement>
@@ -170,6 +171,12 @@
                 <artifactId>junit</artifactId>
                 <version>${junit}</version>
                 <scope>test</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+            <dependency>
+                <groupId>io.github.bonigarcia</groupId>
+                <artifactId>webdrivermanager</artifactId>
+                <version>${webdrivermanager}</version>
             </dependency>
 
         </dependencies>

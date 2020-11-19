@@ -1,8 +1,9 @@
 package pl.jsystems.qa.qagui.cucmber;
 
-import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,9 +24,12 @@ import java.util.concurrent.TimeUnit;
 public class ConfigBaseStep {
     protected WebDriver driver;
 
+
     @Before
     public void setUp() {
-
+        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.edgedriver().setup();
     }
 
     public WebDriver setUpWebDriver() {
@@ -44,13 +48,13 @@ public class ConfigBaseStep {
     }
 
     private void setUpLocalConfiguration() {
-        try {
-            System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
-            System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
-            System.setProperty("webdriver.edge.driver", Paths.get(getClass().getClassLoader().getResource("driver/msedgedriver.exe").toURI()).toFile().getAbsolutePath());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            System.setProperty("webdriver.chrome.driver", Paths.get(getClass().getClassLoader().getResource("driver/chromedriver.exe").toURI()).toFile().getAbsolutePath());
+//            System.setProperty("webdriver.gecko.driver", Paths.get(getClass().getClassLoader().getResource("driver/geckodriver.exe").toURI()).toFile().getAbsolutePath());
+//            System.setProperty("webdriver.edge.driver", Paths.get(getClass().getClassLoader().getResource("driver/msedgedriver.exe").toURI()).toFile().getAbsolutePath());
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
         driver = setWebDriver();
     }
 
@@ -121,12 +125,12 @@ public class ConfigBaseStep {
         if(!scenario.isFailed()) {
             status = "( ͡° ͜ʖ ͡°)";
 //            status = "++++++++++";
-            scenario.write("Scenario passed");
+            scenario.log("Scenario passed");
         } else {
             status = "(✖╭╮✖)";
 //            status = "-------------";
-            scenario.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"images/png");
-            scenario.write("Scenario failed");
+            scenario.attach(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"images/png", scenario.getName());
+            scenario.log("Scenario failed");
         }
         System.out.println("\n"+status+" End of: " + scenario.getName() + " scenario.");
         driver.quit();
