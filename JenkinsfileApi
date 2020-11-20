@@ -17,6 +17,13 @@ pipeline {
                git 'https://github.com/testautomation112020/qa.git'
             }
         }
+
+        stage('build') {
+            steps {
+                sh "mvn clean install -DskipTests"
+            }
+        }
+
         stage('run') {
             steps {
                 sh "mvn clean test -Dgroups=${params.TAG} -DexcludedGroups=${params.EXTAG} -DENVIRONMENT=${params.ENVIRONMENT} -pl qaapi"
