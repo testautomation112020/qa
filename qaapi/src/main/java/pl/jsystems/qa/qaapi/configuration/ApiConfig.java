@@ -13,4 +13,9 @@ public class ApiConfig {
     public static final String AZURE_URL = ENV.getString("azureUrl");
     public static final String API_KEY = ENV.getString("apikey");
 
+    public static final String DB_CLASS = ENV.getString("dbClass");
+    public static final String DB_URL = ENV.getString("dbUrl");
+    public static final String DB_USER = ENV.getString("dbUser");
+    public static final String DB_PASS = ENV.getString("dbPass");
+
 }

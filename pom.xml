@@ -187,6 +187,9 @@
                 <version>${rest-assured}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/oracle/oracle-jdbc -->
+
+
         </dependencies>
     </dependencyManagement>
 
