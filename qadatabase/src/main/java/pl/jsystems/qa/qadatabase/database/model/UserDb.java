@@ -1,4 +1,4 @@
-package pl.jsystems.qa.qaapi.database.model;
+package pl.jsystems.qa.qadatabase.database.model;
 
 public class UserDb {
 

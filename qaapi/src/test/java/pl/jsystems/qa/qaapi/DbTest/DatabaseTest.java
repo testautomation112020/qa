@@ -4,8 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import pl.jsystems.qa.qaapi.database.UserDao;
-import pl.jsystems.qa.qaapi.database.model.UserDb;
+import pl.jsystems.qa.qadatabase.database.UserDao;
+import pl.jsystems.qa.qadatabase.database.model.UserDb;
 
 import static com.google.common.truth.Truth.assertThat;
 

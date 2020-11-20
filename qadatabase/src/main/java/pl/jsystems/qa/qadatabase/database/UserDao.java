@@ -1,6 +1,6 @@
-package pl.jsystems.qa.qaapi.database;
+package pl.jsystems.qa.qadatabase.database;
 
-import pl.jsystems.qa.qaapi.database.model.UserDb;
+import pl.jsystems.qa.qadatabase.database.model.UserDb;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

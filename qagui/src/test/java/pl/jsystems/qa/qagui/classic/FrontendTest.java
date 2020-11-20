@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pl.jsystems.qa.qaapi.model.usersdevice.SimpleUser;
+import pl.jsystems.qa.qaapi.service.UserService;
+import pl.jsystems.qa.qadatabase.database.UserDao;
+import pl.jsystems.qa.qadatabase.database.model.UserDb;
 import pl.jsystems.qa.qagui.classic.functional.LoginFunction;
 import pl.jsystems.qa.qagui.classic.page.*;
 import pl.jsystems.qa.qagui.classic.page.modules.CommentModule;
@@ -12,6 +16,7 @@ import pl.jsystems.qa.qagui.config.GuiConfig;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -221,6 +226,17 @@ public class FrontendTest extends ConfigFrontEnd {
         }
 
         assertTrue(commentModule.likeRingCheckbox.isSelected());
+
+    }
+
+    @Disabled
+    @DisplayName("E2E test")
+    @Test
+    public void e2eTest() {
+        SimpleUser user = new SimpleUser("Paweł", "Kowalski");
+        UserService.postUser(user);
+
+        List<UserDb> userDbs = UserDao.getAllUsers();
 
     }
 
