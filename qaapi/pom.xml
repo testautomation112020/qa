@@ -12,6 +12,10 @@
 
     <artifactId>qaapi</artifactId>
 
+    <properties>
+        <oracle-jdbc>11.2.0.3</oracle-jdbc>
+    </properties>
+
 
     <dependencies>
         <dependency>
@@ -89,6 +93,13 @@
         <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>oracle</groupId>
+            <artifactId>oracle6</artifactId>
+            <version>${oracle-jdbc}</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/ojdbc6-11.2.0.3.jar</systemPath>
         </dependency>
     </dependencies>
 
