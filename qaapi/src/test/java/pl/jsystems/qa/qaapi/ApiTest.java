@@ -3,12 +3,15 @@ package pl.jsystems.qa.qaapi;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pl.jsystems.qa.qaapi.model.SimpleUser;
-import pl.jsystems.qa.qaapi.model.User;
+import pl.jsystems.qa.qaapi.model.usersdevice.GenericUser;
+import pl.jsystems.qa.qaapi.model.usersdevice.SimpleUser;
+import pl.jsystems.qa.qaapi.model.usersdevice.User;
 import pl.jsystems.qa.qaapi.model.error.ErrorResponse;
 import pl.jsystems.qa.qaapi.service.UserService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +21,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static com.google.common.truth.Truth.assertThat;
 
+@Tag("API")
 @DisplayName("ApiTest")
 public class ApiTest {
 
@@ -166,5 +170,24 @@ public class ApiTest {
         assertThat(errorResponse.error.validationError).isEqualTo("invalid_email");
         assertThat(errorResponse.error.message).isEqualTo("your email is invalid");
     }
+
+    @DisplayName("Generic type , String")
+    @Test
+    public void genericString() throws IOException {
+        //
+        GenericUser<String> user = UserService.getGenericStringUser();
+
+        assertThat(user.id).isEqualTo("1");
+    }
+
+    @DisplayName("Generic type , String")
+    @Test
+    public void genericInteger() throws IOException {
+        //
+        GenericUser<Integer> user = UserService.getGenericIntegerUser();
+
+        assertThat(user.id).isEqualTo(1);
+    }
+
 
 }
