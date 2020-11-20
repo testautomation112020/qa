@@ -1,6 +1,6 @@
-package pl.jsystems.qa.qaapi.database;
+package pl.jsystems.qa.qadatabase.database;
 
-import pl.jsystems.qa.qaapi.configuration.ApiConfig;
+import pl.jsystems.qa.qadatabase.configuration.DBConfig;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,10 +19,10 @@ public class DatabaseConnector {
 
     private static void initConnection() {
         try {
-            Class.forName(ApiConfig.DB_CLASS);
-            String url = ApiConfig.DB_URL;
-            String user = ApiConfig.DB_USER;
-            String pass = ApiConfig.DB_PASS;
+            Class.forName(DBConfig.DB_CLASS);
+            String url = DBConfig.DB_URL;
+            String user = DBConfig.DB_USER;
+            String pass = DBConfig.DB_PASS;
 
             connection = DriverManager.getConnection(url, user, pass);
 
