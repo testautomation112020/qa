@@ -13,8 +13,8 @@
         <module>qamock</module>
         <module>qadatabase</module>
         <module>qajunit</module>
-        <module>qagui</module>
         <module>qaapi</module>
+        <module>qagui</module>
     </modules>
 
     <properties>
